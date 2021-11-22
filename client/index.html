@@ -8,13 +8,25 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
+    <h2 id="title">How much income will you have in retirement?</h2>
     <section class="calc-form">
         <form action="savings-calc" id="calculator">
-            <h2 id="title">How much income will you have in retirement?</h2>
             <label for="#current-savings">How much do you currently have saved for retirement?</label>
-            <input type="number" placeholder="5000" class="value-box" id="current-savings"> 
+            <input type="text" placeholder="5000" class="value-box" id="current-savings">
+            <br>
+            <label for="#monthly-aug">How much do you plan to contribute monthly?</label>
+            <input type="text" placeholder="5000" class="value-box" id="monthly-aug">
+            <br>
+            <label for="#roi">What is your expected annual rate of return?</label>
+            <input type="text" placeholder="8" class="value-box" id="roi">
+            <br>
+            <label for="#years">How many years until you plan to retire?</label>
+            <input type="text" placeholder="30" class="value-box" id="years"> 
+            <section id="btn">
+            <button id="calcBtn">Calculate</button>
+            </section>
         </form>
     </section>
-    <script src="./index.js"></script>
+    <script src="../client/index.js"></script>
 </body>
 </html>
