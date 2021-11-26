@@ -2,15 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+const {SERVER_PORT} = process.env
 
 app.use(express.json());
 app.use(cors());
 
-const { getHouses, calcRetireIncome } = require('./controller.js');
+const { getLocations, calcRetireIncome } = require('./controller.js');
 
-app.get(`/api/houses`, getHouses);
-app.post(`/api/houses`, calcRetireIncome);
-//app.put(`/api/houses/:id`, updateHouse);
-//app.delete(`/api/houses/:id`, deleteHouse);
+app.get(`/api/cities`, getLocations);
+app.post(`/api/cities`, calcRetireIncome);
 
-app.listen(4004, () => console.log(`Server is running on port 4004`));
+
+app.listen(SERVER_PORT, () => console.log(`Server is running on port ${SERVER_PORT}`));
