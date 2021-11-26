@@ -5,28 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Where Should You Retire?</title>
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2 id="title">How much income will you have in retirement?</h2>
-    <section class="calc-form">
-        <form action="savings-calc" id="calculator">
-            <label for="#current-savings">How much do you currently have saved for retirement?</label>
-            <input type="text" placeholder="5000" class="value-box" id="current-savings">
-            <br>
-            <label for="#monthly-aug">How much do you plan to contribute monthly?</label>
-            <input type="text" placeholder="5000" class="value-box" id="monthly-aug">
-            <br>
-            <label for="#roi">What is your expected annual rate of return?</label>
-            <input type="text" placeholder="8" class="value-box" id="roi">
-            <br>
-            <label for="#years">How many years until you plan to retire?</label>
-            <input type="text" placeholder="30" class="value-box" id="years"> 
-            <section id="btn">
-            <button id="calcBtn">Calculate</button>
-            </section>
-        </form>
-    </section>
-    <script src="../client/index.js"></script>
+    <header>
+        <h1>Where Should You Retire?</h1>
+        
+    </header>
+    <main>
+
+    <form>STEP 1:
+        <h3>How much income will you have in retirement?</h3>
+        <input 
+            type='text'
+            id="principal"
+            placeholder="How much do you currently have saved?"/>
+        <input 
+            type='text'
+            id="contribution"
+            placeholder='How much will you contribute annually?'/>
+        <input 
+            type='text'
+            id="rate"
+            placeholder='What is your expected annual rate of return?'/>
+        <input 
+            type='text'
+            id="years"
+            placeholder='In how many years will you retire?'/>
+        <button>STEP 2: Calculate</button>
+    </form>
+
+    <section id="locations-container"></section>
+
+    </main>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

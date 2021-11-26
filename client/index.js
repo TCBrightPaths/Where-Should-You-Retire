@@ -1,39 +1,64 @@
-//Destructuring elements from the DOM for first feature
-let calcBtn = document.querySelector('#calcBtn')
-let form = document.querySelector('.calc-form')
-//Write a function that processes the values taken from the dom
-let calculate = (event) => {
-    event.preventDefault();
-    let s0 = document.querySelector('#current-savings').value
-    let aug = document.querySelector('#monthly-aug').value    
-    let percent = document.querySelector('#roi').value
-    let years = document.querySelector('#years').value
-    let yearlyGrowth = []
-    percent = percent/100 + 1
-    s0 = (s0 + (aug * 12)) * percent
-    while (yearlyGrowth.length < years) {
-        yearlyGrowth.push(s0)
+const locationsContainer = document.querySelector('#locations-container')
+const form = document.querySelector('form')
+
+const baseURL = `http://localhost:4004/api/houses`
+
+const locationsCallback = ({ data: locations }) => displayLocations(locations)
+const errCallback = err => console.log(err)
+
+const getAllLocations = () => axios.get(baseURL).then(locationsCallback).catch(errCallback)
+const retireIncome = body => axios.post(baseURL, body).then(locationsCallback).catch(errCallback)
+//const deleteHouse = id => axios.delete(`${baseURL}/${id}`).then(housesCallback).catch(errCallback)
+//const updateHouse = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(housesCallback).catch(errCallback)
+
+function submitHandler(e) {
+    e.preventDefault()
+
+    let principal = document.querySelector('#principal')
+    let contribution = document.querySelector('#contribution')
+    let rate = document.querySelector('#rate')
+    let years = document.querySelector('#years')
+
+    let bodyObj = {
+        principal: principal.value,
+        contribution: contribution.value, 
+        rate: rate.value,
+        years: years.value
     }
-    let n = yearlyGrowth[yearlyGrowth.length-1]
-    let result = document.createElement('h2')
-    result.textContent = `In ${years} years you can expect to have a total of $${n} saved for retirement!`
-    form.appendChild(result)
+
+    retireIncome(bodyObj)
+
+    principal.value = ''
+    contribution.value = ''
+    rate.value = ''
+    years.value = ''
 }
-//Write a function that takes in four parameters(the current savings, the monthly contribution, the expected savings rate, and the time to retirement)
 
-//let retirementCalc = (s0, aug, percent, years) => {
-    //s0 = 
-    //create an array to hold yearlyGrowth
-    //given a starting s0= currentSavings
-    //given a percent = percent/100 + 1
-    //given an aug = 50
-    //let p0 += (p0*percent) + aug
-    //push that number to an array
-    //keep adding to p0 until p0 <= p, then stop
+function createLocationCard(location) {
+    const locationCard = document.createElement('div')
+    locationCard.classList.add('location-card')
 
-    //let n = the last index of the array with the number of years needed to get a population greater or equal to p
-    //console.log(n)
-    //return the total amount saved after years
-//}
+    locationCard.innerHTML = `<img alt='location cover image' src=${location.imageURL} class="location-cover-image"/>
+    <p class="city">${location.city}</p>
+    <div class="btns-container">
+        <button onclick="updateHouse(${location.id}, 'minus')">-</button>
+        <p class="house-price">$${location.cost}</p>
+        <button onclick="updateHouse(${location.id}, 'plus')">+</button>
+    </div>
+    <button onclick="deleteHouse(${house.id})">delete</button>
+    `
 
-calcBtn.addEventListener('click', calculate)
+
+    locationsContainer.appendChild(locationCard)
+}
+
+function displayLocations(arr) {
+    locationsContainer.innerHTML = ``
+    for (let i = 0; i < arr.length; i++) {
+        createLocationCard(arr[i])
+    }
+}
+
+form.addEventListener('submit', submitHandler)
+
+getAllLocations()
