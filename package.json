@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/TCBrightPaths/Where-Should-You-Retire/issues"
   },
-  "homepage": "https://github.com/TCBrightPaths/Where-Should-You-Retire#readme"
+  "homepage": "https://github.com/TCBrightPaths/Where-Should-You-Retire#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
 }
