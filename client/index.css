@@ -26,7 +26,7 @@
     width: 350px;
     height: 350px;
     background-color: darkslategray;
-    color: white;
+    color: snow;
     position: relative;
     display: flex; 
     flex-direction: column;
@@ -53,7 +53,7 @@
     background-color: snow;
   }
   
-  #price-container {
+  #location-container {
     width: 85%;
   }
   
@@ -64,21 +64,21 @@
     align-items: center;
   }
   
-  #houses-container {
+  #locations-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
   }
   
-  .house-cover-image {
+  .location-cover-image {
     width: 300px; 
     height: 300px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
   }
   
-  .house-card {
+  .location-card {
     background-color: turquoise;
     width: 300px;
     margin: 20px; 
@@ -90,12 +90,12 @@
     border-top-right-radius: 15px;
   }
   
-  .house-address {
+  .location-city {
     font-size: 18px;
     margin: 5px 0;
   }
   
-  .house-price {
+  .location-cost {
     font-size: 15px;
     margin: 5px 0;
   }

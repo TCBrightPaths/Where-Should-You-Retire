@@ -1,7 +1,7 @@
 const locationsContainer = document.querySelector('#locations-container')
 const form = document.querySelector('form')
 
-const baseURL = `http://localhost:4004/api/houses`
+const baseURL = `http://localhost:4004/api/cities`
 
 const locationsCallback = ({ data: locations }) => displayLocations(locations)
 const errCallback = err => console.log(err)
@@ -40,12 +40,10 @@ function createLocationCard(location) {
 
     locationCard.innerHTML = `<img alt='location cover image' src=${location.imageURL} class="location-cover-image"/>
     <p class="city">${location.city}</p>
-    <div class="btns-container">
-        <button onclick="updateHouse(${location.id}, 'minus')">-</button>
-        <p class="house-price">$${location.cost}</p>
-        <button onclick="updateHouse(${location.id}, 'plus')">+</button>
-    </div>
-    <button onclick="deleteHouse(${house.id})">delete</button>
+    
+      
+        <p class="location-cost">$${location.cost}</p>
+   
     `
 
 
@@ -61,4 +59,3 @@ function displayLocations(arr) {
 
 form.addEventListener('submit', submitHandler)
 
-getAllLocations()
