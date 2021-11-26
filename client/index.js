@@ -8,8 +8,7 @@ const errCallback = err => console.log(err)
 
 const getAllLocations = () => axios.get(baseURL).then(locationsCallback).catch(errCallback)
 const retireIncome = body => axios.post(baseURL, body).then(locationsCallback).catch(errCallback)
-//const deleteHouse = id => axios.delete(`${baseURL}/${id}`).then(housesCallback).catch(errCallback)
-//const updateHouse = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(housesCallback).catch(errCallback)
+
 
 function submitHandler(e) {
     e.preventDefault()
