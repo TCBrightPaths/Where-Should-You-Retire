@@ -1,7 +1,7 @@
 [
     {
       "id": 1,
-      "cityCountry":"Buenos Aires, Argentina" ,
+      "cityCountry": "Buenos Aires, Argentina",
       "costLiving": 24000,
       "imageURL" : "https://cdn.pixabay.com/photo/2014/10/30/00/15/buenos-aires-508790_960_720.jpg"
     },
@@ -56,13 +56,13 @@
     {
       "id": 10,
       "cityName": "London, United Kingdon",
-      "costLiving": "50000",
+      "costLiving": 50000,
       "imageURL" : "https://cdn.pixabay.com/photo/2017/06/11/18/03/big-ben-2393098_960_720.jpg"
     },
     {
       "id": 11,
       "cityName": "Montevideo, Uruguay",
-      "costLiving": "28000",
+      "costLiving": 28000,
       "imageURL" : "https://cdn.pixabay.com/photo/2021/09/18/22/16/harbor-6636280_960_720.jpg"
     }
      

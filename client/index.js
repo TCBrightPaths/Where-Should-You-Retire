@@ -1,13 +1,13 @@
 const locationsContainer = document.querySelector('#locations-container')
 const form = document.querySelector('form')
 
-const baseURL = `http://localhost:4004/api/cities`
+const baseURL = `http://localhost:4000/api/locations`
 
-const locationsCallback = ({ data: locations }) => displayLocations(locations)
+const locationsCallback = ({ data: locations }) => console.log(locations) //displayLocations(locations)
 const errCallback = err => console.log(err)
 
 const getAllLocations = () => axios.get(baseURL).then(locationsCallback).catch(errCallback)
-const retireIncome = body => axios.post(baseURL, body).then(locationsCallback).catch(errCallback)
+const retireIncome = (body) => axios.post(baseURL, body).then(locationsCallback).catch(errCallback)
 
 
 function submitHandler(e) {
@@ -25,7 +25,7 @@ function submitHandler(e) {
         years: years.value
     }
 
-    retireIncome(bodyObj)
+   retireIncome(bodyObj)
 
     principal.value = ''
     contribution.value = ''
@@ -38,10 +38,10 @@ function createLocationCard(location) {
     locationCard.classList.add('location-card')
 
     locationCard.innerHTML = `<img alt='location cover image' src=${location.imageURL} class="location-cover-image"/>
-    <p class="city">${location.city}</p>
+    <p class="city">${location.cityName}</p>
     
       
-        <p class="location-cost">$${location.cost}</p>
+        <p class="location-cost">$${location.costLiving}</p>
    
     `
 
