@@ -12,14 +12,14 @@
         <h1>Where Should You Retire?</h1>
         
     </header>
-    <main>
-
+    
+    <div>
     <form>STEP 1:
         <h3>How much income will you have in retirement?</h3>
         <input 
             type='text'
             id="principal"
-            placeholder="How much do you currently have saved?"/>
+            placeholder="How much do you currently have saved?" required/>
         <input 
             type='text'
             id="contribution"
@@ -27,14 +27,22 @@
         <input 
             type='text'
             id="rate"
-            placeholder='What is your expected annual rate of return?'/>
+            placeholder='What is your expected annual rate of return?' required/>
         <input 
             type='text'
             id="years"
-            placeholder='In how many years will you retire?'/>
+            placeholder='In how many years will you retire?' required/>
         <button>STEP 2: Calculate</button>
     </form>
-
+    <section class="res"></section>
+    <br>
+    <br>
+    <section id="itinerary">
+        <h2>Scout List</h2>
+        <ol id="listContainer"></ol>
+    </section>
+    </div>
+    <main>
     <section id="locations-container"></section>
 
     </main>
