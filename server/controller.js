@@ -1,33 +1,37 @@
 const locations = require('./db.json')
+const destinations = require('./list.json')
+let globalId = 0
 
 module.exports = {
 
     getLocations: (req, res) => res.status(200).send(locations),
     calcRetireIncome: (req, res) => {
         let { principal, contribution, rate, years } = req.body;
-        let compoundOneYear = Math.floor(principal * (Math.E ** (rate/100))) + contribution
+        rate -= 3
+        let compoundOneYear = Math.floor(principal + (principal * (Math.E ** (rate/100))))
         let yearlyGrowth = []
         while (yearlyGrowth.length < years) {
         yearlyGrowth.push(compoundOneYear)
         }
-        let n = yearlyGrowth[yearlyGrowth-1]
+        let n = yearlyGrowth.pop()
         let drawdown = Math.floor(n * 0.04)
+        let annualIncome = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD"
+        }).format(drawdown)
        
-        res.send(locations)
-        // res.send(locations.filter( (locations) => {
-        //     let retirementLocations = []
+        res.status(200).send(annualIncome)
         
-        //     for (let i in locations) {
-        //         let {costLiving} = locations
-        //         if(drawdown < costLiving) {
-        //             alert(`You haven't saved enough for retirement! Consider saving at least 5% of your annual income in your 401k or IRA for a healthly income in retirment.`)
-        //         } else if(drawdown >= costLiving) {
-        //             retirementLocations.push(locations[i])
-        //         }
-        //     }
-            
-        //     return retirementLocations
-        // }))        
+    },
+    updateItinerary: (req, res) => {
+        let { name } = req.body 
+        let newDestination = {
+            id: globalId,
+            name
+        }
+        destinations.push(newDestination)
+        res.send(destinations);
+        globalId++
     }
         
 

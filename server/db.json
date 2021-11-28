@@ -1,7 +1,7 @@
 [
     {
       "id": 1,
-      "cityCountry": "Buenos Aires, Argentina",
+      "cityName": "Buenos Aires, Argentina",
       "costLiving": 24000,
       "imageURL" : "https://cdn.pixabay.com/photo/2014/10/30/00/15/buenos-aires-508790_960_720.jpg"
     },
