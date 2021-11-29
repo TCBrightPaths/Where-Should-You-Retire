@@ -6,11 +6,13 @@ const listContainer = document.querySelector('#listContainer')
 const baseURL = `http://localhost:4000/api/locations`
 
 const locationsCallback = ({ data: locations }) => displayLocations(locations)
+const destinationCallback = ({ data: destinations }) => displayList (destinations)
 const errCallback = err => console.log(err)
 
 const getAllLocations = () => axios.get(baseURL).then(locationsCallback).catch(errCallback)
 const retireIncome = (body) => axios.post(baseURL, body).then(displayIncome).catch(errCallback)
-const updateItinerary = (name) => axios.put(baseURL, name).then(displayList).catch(errCallback)
+const updateItinerary = (name) => axios.put(baseURL, name).then(destinationCallback).catch(errCallback)
+const deleteDestination = (id) => axios.delete(`http://localhost:4000/api/destinations/${id}`).then(destinationCallback)
 
 function submitHandler(e) {
     e.preventDefault()
@@ -44,7 +46,7 @@ function createLocationCard(location) {
     
       
         <p class="location-cost">~$${location.costLiving}/yr annual income required for a family of four.</p>
-        <button onclick="updateItinerary(${location.cityName})">Add to List</button>
+        <button onclick="updateItinerary('${location.cityName}')">Add to List</button>
     `
 
 
@@ -58,10 +60,10 @@ function displayLocations(arr) {
     }
 }
 
-function displayList({data: destinations}) {
+function displayList(arr) {
     listContainer.innerHTML = ``
-    for (let i = 0; i < destinations.length; i++) {
-        addList(destinations[i])
+    for (let i = 0; i < arr.length; i++) {
+        addList(arr[i])
     }
 }
 
@@ -78,11 +80,11 @@ function displayIncome ({data: annualIncome}) {
 function addList (destination) {
     let trip = document.createElement('li');
     let destinationName = document.createElement('span');
-    destinationName.textContent = destination;
-    trip.appendChild(destination);
+    destinationName.textContent = destination.name;
+    trip.appendChild(destinationName);
     let deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'X';
-    deleteBtn.addEventListener('click', deleteDestination);
+    deleteBtn.addEventListener('click', deleteDestination(destination.id));
     trip.appendChild(deleteBtn);
     listContainer.appendChild(trip);
 }
