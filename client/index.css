@@ -130,6 +130,7 @@
   }
 
 #itinerary {
+    text-align: center;
     width: 350px;
     height: 350px;
     background-color: darkslategray;
@@ -140,6 +141,7 @@
     justify-content: space-evenly; 
     align-items: center;
     margin: 30px;  
+    overflow-y: scroll;
   }
 
 ul {
@@ -149,4 +151,15 @@ ul {
 
 li {
   cursor: pointer;
+  
+}
+
+.scout {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
