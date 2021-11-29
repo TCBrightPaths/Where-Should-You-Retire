@@ -7,14 +7,8 @@ module.exports = {
     getLocations: (req, res) => res.status(200).send(locations),
     calcRetireIncome: (req, res) => {
         let { principal, contribution, rate, years } = req.body;
-        rate -= 3
-        let compoundOneYear = Math.floor(principal + (principal * (Math.E ** (rate/100))))
-        let yearlyGrowth = []
-        while (yearlyGrowth.length < years) {
-        yearlyGrowth.push(compoundOneYear)
-        }
-        let n = yearlyGrowth.pop()
-        let drawdown = Math.floor(n * 0.04)
+        let futureValue = (principal * (Math.pow(1 + rate/12/100, 12*years))) + ((contribution*Math.pow(1+rate/12/100, 12*years)-1)/(rate/12))
+        let drawdown = Math.floor(futureValue * 0.04)
         let annualIncome = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD"
@@ -24,7 +18,7 @@ module.exports = {
         
     },
     updateItinerary: (req, res) => {
-        let { name } = req.body 
+        let {name} = req.body 
         let newDestination = {
             id: globalId,
             name
@@ -34,8 +28,9 @@ module.exports = {
         globalId++
     },
     deleteItinerary: (req, res) => {
-        let index = destinations.findIndex(elem => elem.id === +req.params.id)
+        let {id} = req.params
+        let index = destinations.findIndex(elem => elem.id === +id)
         destinations.splice(index, 1)
-        res.status(400).send(destinations)
+        res.status(200).send(destinations)
     }
 }

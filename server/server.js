@@ -13,8 +13,8 @@ const { getLocations, calcRetireIncome, updateItinerary, deleteItinerary } = req
 
 app.get('/api/locations', getLocations);
 app.post('/api/locations', calcRetireIncome);
-app.put('/api/locations', updateItinerary)
-app.delete('/api/locations', deleteItinerary)
+app.post('/api/destinations', updateItinerary)
+app.delete('/api/destinations/:id', deleteItinerary)
 
 
 const PORT = process.env.PORT || 4000
