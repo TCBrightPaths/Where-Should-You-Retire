@@ -1,6 +1,6 @@
 const locations = require('./db.json')
 const destinations = require('./list.json')
-let globalId = 0
+let globalId = 1
 
 module.exports = {
 
@@ -32,8 +32,10 @@ module.exports = {
         destinations.push(newDestination)
         res.send(destinations);
         globalId++
+    },
+    deleteItinerary: (req, res) => {
+        let index = destinations.findIndex(elem => elem.id === +req.params.id)
+        destinations.splice(index, 1)
+        res.status(400).send(destinations)
     }
-        
-
-  
 }
