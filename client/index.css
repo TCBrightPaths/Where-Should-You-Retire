@@ -70,10 +70,21 @@
     background-color: snow;
   }
 
-  .income {
-    color: red;
+  .res {
+    height: 80px; 
+    display: flex; 
+    justify-content: center; 
+    color: turquoise;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: center;
+    align-items: center;
   }
   
+  .income {
+    color: turquoise;
+  }
+
   #location-container {
     width: 85%;
   }
@@ -148,7 +159,7 @@
     height: 350px;
     background-color: darkslategray;
     color: snow;
-    position: relative ;
+    position: relative;
     display: flex; 
     flex-direction: column;
     justify-content: right; 

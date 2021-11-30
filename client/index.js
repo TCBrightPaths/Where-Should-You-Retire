@@ -8,15 +8,17 @@ const otherURL = `http://localhost:4000/api/destinations`
 
 const locationsCallback = ({ data: locations }) => displayLocations(locations)
 const destinationCallback = ({ data: destinations }) => displayList(destinations)
-//const errCallback = err => console.log(err)
+const errCallback = err => console.log(err)
 
-const getAllLocations = () => axios.get(baseURL).then(locationsCallback)//.catch(errCallback)
-const retireIncome = (body) => axios.post(baseURL, body).then(displayIncome)//.catch(errCallback)
-const updateItinerary = (cityName) => axios.post(otherURL, {name: cityName}).then(destinationCallback)//.catch(errCallback)
+const getAllLocations = () => axios.get(baseURL).then(locationsCallback).catch(errCallback)
+const retireIncome = (body) => axios.post(baseURL, body).then(displayIncome).catch(errCallback)
+const updateItinerary = (cityName) => axios.post(otherURL, {name: cityName}).then(destinationCallback).catch(errCallback)
 const deleteDestination = (id) => axios.delete(`http://localhost:4000/api/destinations/${id}`).then(destinationCallback)
 
 function submitHandler(e) {
     e.preventDefault()
+
+    res.innerHTML = ``
 
     let principal = document.querySelector('#principal')
     let contribution = document.querySelector('#contribution')
@@ -71,9 +73,9 @@ function displayIncome ({data: annualIncome}) {
     result.classList.add('income-display')
     let income = document.createElement('span')
     income.classList.add('income')
-    income.textContent = annualIncome
+    income.textContent = `You can expect an annual income of ${annualIncome} in retirement`
     result.appendChild(income)
-    result.textContent = `Based on your savings rate, target retirement date, and a 4% safe withdrawal rate: You can expect an annual income of ${income.textContent} in retirement.`
+    result.textContent = `Based on your savings rate, target retirement date, and a 4% safe withdrawal rate: ${income.textContent}.`
     res.appendChild(result)
 }
 
