@@ -4,6 +4,10 @@ This app helps users who are thinking of retiring abroad select a location based
 
 ## Features
 
+- Retirement Income Calculator
+- Location Cards with option to add to a list
+- Scout location list with option to delete locations
+
 ## Installation
 
 This is a [Node.js](https://nodejs.org/) module available through the 
