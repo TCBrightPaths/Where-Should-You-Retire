@@ -21,21 +21,10 @@ command line tools.
 npm install Where-Should-You-Retire --save
 ```
 
-## Tests
-
-```sh
-npm install
-npm test
-```
-
 ## Dependencies
 
 - [cors](https://ghub.io/cors): Node.js CORS middleware
 - [express](https://ghub.io/express): Fast, unopinionated, minimalist web framework
-
-## Dev Dependencies
-
-None
 
 ## License
 
