@@ -34,7 +34,8 @@
   }
 
   span {
-    color: red
+    color: snow;
+    
   }
 
   form {
@@ -67,6 +68,10 @@
     border-bottom: 2px solid #232323;
     color: #232323;
     background-color: snow;
+  }
+
+  .income {
+    color: red;
   }
   
   #location-container {
@@ -127,10 +132,18 @@
   
   .btns-container > button {
     width: 20px;
+
   }
 
+.delete-btn {
+  width: 18px;
+  height: 18px;
+  margin: 5px;
+  align-items: right;
+}
+
 #itinerary {
-    text-align: center;
+    text-align: left;
     width: 350px;
     height: 350px;
     background-color: darkslategray;
@@ -138,28 +151,29 @@
     position: relative ;
     display: flex; 
     flex-direction: column;
-    justify-content: space-evenly; 
+    justify-content: right; 
     align-items: center;
     margin: 30px;  
     overflow-y: scroll;
   }
 
 ul {
-    font-size: 24px;
-    width: 100%;
+    font-size: 18px;
+    width: 75%;
 }
 
 li {
   cursor: pointer;
+  align-items: left;
   
 }
 
 .scout {
   display: block;
   font-size: 1.17em;
-  margin-block-start: 1em;
+  margin-block-start: 0.87em;
   margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+  margin-inline-start: 5px;
+  margin-inline-end: 5px;
   font-weight: bold;
 }

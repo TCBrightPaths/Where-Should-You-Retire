@@ -70,9 +70,10 @@ function displayIncome ({data: annualIncome}) {
     let result = document.createElement("h2")
     result.classList.add('income-display')
     let income = document.createElement('span')
+    income.classList.add('income')
     income.textContent = annualIncome
     result.appendChild(income)
-    result.textContent = `Based on your savings rate, target retirement date, and a 4% safe withdrawal rate: You can expect an annual income of ${income.textContent}.`
+    result.textContent = `Based on your savings rate, target retirement date, and a 4% safe withdrawal rate: You can expect an annual income of ${income.textContent} in retirement.`
     res.appendChild(result)
 }
 
@@ -82,6 +83,7 @@ function addList (destination) {
     destinationName.textContent = destination.name;
     trip.appendChild(destinationName);
     let deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete-btn')
     deleteBtn.textContent = 'X';
     deleteBtn.addEventListener('click', () => 
     deleteDestination(destination.id)
