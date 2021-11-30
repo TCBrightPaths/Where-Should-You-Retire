@@ -2,6 +2,8 @@
 
 This app helps users who are thinking of retiring abroad select a location based on their expected income in retirement and the cost of living in several popular locations. The site includes a calculator for users to determine how much income they can expect to have, and users can see pictures of possible retirement destinations and add them to a list of places they might like to scout. 
 
+## Features
+
 ## Installation
 
 This is a [Node.js](https://nodejs.org/) module available through the 
