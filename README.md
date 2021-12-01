@@ -3,9 +3,9 @@
 This app helps users who are thinking of retiring abroad select a location based on their expected income in retirement and the cost of living in several popular locations. The site includes a calculator for users to determine how much income they can expect to have, and users can see pictures of possible retirement destinations and add them to a list of places they might like to scout. 
 
 ## Features
-<div>
-   ![calculator for income in retirement](images/Retire_Abroad_Quick_Intro.gif)
-</div>
+![calculator for income in retirement](images/Retire_Abroad_Quick_Intro.gif)
+
+
 - Retirement Income Calculator
 - Location Cards with option to add to a list
 - Scout location list with option to delete locations
