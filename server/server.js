@@ -9,7 +9,6 @@ app.use(cors());
 
 const { getLocations, calcRetireIncome, updateItinerary, deleteItinerary } = require('./controller.js');
 
-//app.post('/api/locations', seed);
 
 app.get('/api/locations', getLocations);
 app.post('/api/locations', calcRetireIncome);
