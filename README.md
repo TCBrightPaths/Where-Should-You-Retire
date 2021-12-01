@@ -14,6 +14,8 @@ Retirement Income Calculator
 
 Scout location list with option to delete locations
 
+![list of possible location names to scout with delete button](images/retireAbroad_scoutList.jpeg)
+
 ## Installation
 
 This is a [Node.js](https://nodejs.org/) module available through the 
