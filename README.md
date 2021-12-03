@@ -4,10 +4,17 @@ This app helps users who are thinking of retiring abroad select a location based
 
 ## Features
 
-- Retirement Income Calculator
-![calculator for income in retirement] (images/retireAbroad_calcRetirementIncome.jpg)
-- Location Cards with option to add to a list
-- Scout location list with option to delete locations
+Location Cards with option to add to a list
+
+![retire abroad scroll full site](images/Retire_Abroad_Quick_Intro.gif) 
+
+Retirement Income Calculator
+
+![calculator](images/retireAbroad_calcRetirementIncome.jpeg)
+
+Scout location list with option to delete locations
+
+![list of possible location names to scout with delete button](images/retireAbroad_scoutList.jpeg)
 
 ## Installation
 
