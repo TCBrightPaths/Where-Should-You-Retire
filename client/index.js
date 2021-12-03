@@ -44,9 +44,16 @@ function createLocationCard(location) {
     const locationCard = document.createElement('div')
     locationCard.classList.add('location-card')
 
+    let {costLiving} = location
+    costLiving = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD"
+    }).format(costLiving)
+    
+
     locationCard.innerHTML = `<img alt='location cover image' src=${location.imageURL} class="location-cover-image"/>
     <p class="city">${location.cityName}</p>
-    <p class="location-cost">~$${location.costLiving}/yr annual income required for a family of four.</p>
+    <p class="location-cost">~${costLiving}/yr annual income required</p>
     <button onclick='updateItinerary("${location.cityName}");'>Add to List</button>
     `
 
