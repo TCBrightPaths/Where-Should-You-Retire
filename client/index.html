@@ -18,6 +18,7 @@
         <h3>How much income will you have in retirement?</h3>
         <input 
             type='text'
+            pattern="\d{3}, d{3}\"
             id="principal"
             placeholder="How much do you currently have saved?" required/>
         <input 
@@ -29,7 +30,7 @@
             id="rate"
             placeholder='What is your expected annual rate of return?' required/>
         <input 
-            type='text'
+            type='text' 
             id="years"
             placeholder='In how many years will you retire?' required/>
         <button>STEP 2: Calculate</button>

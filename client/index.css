@@ -52,6 +52,10 @@
     margin: 30px;
   }
   
+  input :invalid {
+    border-color: red;
+  }
+
   button {
     background-color: #232323;
     width: 75px;
