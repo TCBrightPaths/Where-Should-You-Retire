@@ -1,15 +1,19 @@
+//pulling off the DOM
 const locationsContainer = document.querySelector('#locations-container')
 const form = document.querySelector('form')
 const res = document.querySelector('.res')
 const listContainer = document.querySelector('#listContainer')
 
+//endpoints
 const baseURL = `http://localhost:4000/api/locations`
 const otherURL = `http://localhost:4000/api/destinations`
 
+//handling response
 const locationsCallback = ({ data: locations }) => displayLocations(locations)
 const destinationCallback = ({ data: destinations }) => displayList(destinations)
 const errCallback = err => console.log(err)
 
+//API calls
 const getAllLocations = () => axios.get(baseURL).then(locationsCallback).catch(errCallback)
 const retireIncome = (body) => axios.post(baseURL, body).then(displayIncome).catch(errCallback)
 const updateItinerary = (cityName) => axios.post(otherURL, {name: cityName}).then(destinationCallback).catch(errCallback)
@@ -31,8 +35,8 @@ function submitHandler(e) {
         rate: rate.value,
         years: years.value
     }
-
-   retireIncome(bodyObj)
+    
+   retireIncome(bodyObj) //calling create request for calculator feature
 
     principal.value = ''
     contribution.value = ''
@@ -50,7 +54,7 @@ function createLocationCard(location) {
         currency: "USD"
     }).format(costLiving)
     
-
+    //calling the create request for the list
     locationCard.innerHTML = `<img alt='location cover image' src=${location.imageURL} class="location-cover-image"/>
     <p class="city">${location.cityName}</p>
     <p class="location-cost">~${costLiving}/yr annual income required</p>
@@ -95,12 +99,14 @@ function addList (destination) {
     deleteBtn.classList.add('delete-btn')
     deleteBtn.textContent = 'X';
     deleteBtn.addEventListener('click', () => 
+    //calling the delete request
     deleteDestination(destination.id)
     );
     trip.appendChild(deleteBtn);
     listContainer.appendChild(trip);
 }
 
+//calling the get request for the location tiles
 getAllLocations()
 form.addEventListener('submit', submitHandler)
 
